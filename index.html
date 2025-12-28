@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furo Humanizado • Atibaia e Região</title>
+
+  <style>
+    :root {
+      --pink: #ec4899;
+      --pink-dark: #db2777;
+      --bg: #fff1f6;
+      --text: #374151;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== FUNDO ANIMADO ===== */
+    .floating-bg {
+      position: fixed;
+      inset: 0;
+      background: #fff1f6;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .floating-bg span {
+      position: absolute;
+      bottom: -150px;
+      background: #ec4899;
+      border-radius: 50%;
+      opacity: 0.22;
+      animation: floatUp linear infinite;
+    }
+
+    .floating-bg span:nth-child(1) { left: 5%; width: 80px; height: 80px; animation-duration: 20s; }
+    .floating-bg span:nth-child(2) { left: 15%; width: 40px; height: 40px; animation-duration: 14s; }
+    .floating-bg span:nth-child(3) { left: 30%; width: 60px; height: 60px; animation-duration: 18s; }
+    .floating-bg span:nth-child(4) { left: 45%; width: 100px; height: 100px; animation-duration: 26s; }
+    .floating-bg span:nth-child(5) { left: 60%; width: 50px; height: 50px; animation-duration: 16s; }
+    .floating-bg span:nth-child(6) { left: 70%; width: 90px; height: 90px; animation-duration: 30s; }
+    .floating-bg span:nth-child(7) { left: 80%; width: 35px; height: 35px; animation-duration: 13s; }
+    .floating-bg span:nth-child(8) { left: 90%; width: 70px; height: 70px; animation-duration: 22s; }
+    .floating-bg span:nth-child(9) { left: 25%; width: 45px; height: 45px; animation-duration: 17s; }
+    .floating-bg span:nth-child(10){ left: 55%; width:110px; height:110px; animation-duration: 34s; }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-130vh); }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.05);
+      z-index: 10;
+    }
+
+    header h1 {
+      color: var(--pink);
+      font-size: 24px;
+    }
+
+    nav {
+      display: none;
+      gap: 20px;
+    }
+
+    nav a:hover {
+      color: var(--pink);
+    }
+
+    .btn {
+      background: var(--pink);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: transform .3s, background .3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--pink-dark);
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 80px 24px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: grid;
+      gap: 40px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .hero span {
+      color: var(--pink);
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .image-box {
+      width: 100%;
+      max-width: 500px;
+      max-height: 420px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    .image-box:hover img {
+      transform: scale(1.08);
+    }
+
+    /* ===== SERVIÇOS ===== */
+    .services {
+     
+      border-radius: 32px;
+      
+    }
+
+    .services h3 {
+      text-align: center;
+      color: var(--pink);
+      font-size: 32px;
+      margin-bottom: 48px;
+    }
+
+    .cards {
+      display: grid;
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff;
+      opacity: 50%;
+      padding: 32px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,.06);
+      transition: transform .4s, box-shadow .4s;
+      backdrop-filter: blur(5px);
+      transition: .5s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.12);
+      opacity: 90%;
+    }
+
+    /* ===== DESTAQUE ===== */
+    .highlight {
+      background: #ffe4ef;
+      border-radius: 32px;
+      text-align: center;
+    }
+
+    .highlight h4 {
+      font-size: 32px;
+      color: var(--pink);
+      margin-bottom: 16px;
+    }
+
+    .cta {
+      text-align: center;
+    }
+
+    footer {
+      background: var(--pink);
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+      margin-top: 60px;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FUNDO -->
+  <div class="floating-bg">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header>
+    <h1>Furo Humanizado</h1>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn" href="https://www.instagram.com/furohumanizadocynthia/" target="_blank">Instagram</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Furo Humanizado <span>seguro e acolhedor</span></h2>
+      <p>
+        Oi, eu sou mãe — e sei como esse momento é delicado 💗  
+        Aqui o furo é feito com calma, cuidado e muito carinho.  
+        Atendo <strong>Atibaia e região</strong>.
+      </p>
+      <a class="btn" href="https://www.instagram.com/furohumanizadocynthia/" target="_blank">
+        Conversar pelo Instagram
+      </a>
+    </div>
+
+    <div class="image-box">
+      <img src="581102590_17849127984596551_7270511258233453074_n-removebg-preview.png" alt="Furo humanizado">
+    </div>
+  </section>
+
+  <section id="servicos" class="services">
+    <h3>Nossos Serviços</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Bebês</h4>
+        <p>Ambiente calmo, acolhedor e sem pressa.</p>
+      </div>
+      <div class="card">
+        <h4>Crianças</h4>
+        <p>Respeito, explicação e cuidado.</p>
+      </div>
+      <div class="card">
+        <h4>Adultos</h4>
+        <p>Procedimento rápido e humanizado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlight">
+    <h4>Atendimento em Atibaia e região</h4>
+    <p>Cada furo é feito como se fosse na minha própria filha, com amor e carinho.</p>
+  </section>
+
+  <section id="contato" class="cta">
+    <h3>Vamos conversar?</h3>
+    <p>Me chama no Instagram e tire suas dúvidas 💗</p>
+    <a class="btn" href="https://www.instagram.com/furohumanizadocynthia/" target="_blank">
+      Ir para o Instagram
+    </a>
+  </section>
+
+  <footer>
+    Direitos reservados © 2025 • furohumanizadocynthia • Atibaia e Região
+  </footer>
+
+</body>
+</html>
